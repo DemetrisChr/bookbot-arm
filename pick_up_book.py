@@ -136,6 +136,27 @@ def pick_up_book():
     moveTo(destination=[0, -3.10, 0.16, -0.21, 0.11, 0.6], speed="jump")
     moveTo(destination=[0, -3.10, 0.16, -0.21, 0.11, 1.5], speed="jump")
 
+def pick_up_top_book():
+    # initial pos
+    moveTo(destination=[0, 0, 0, 0, 0, 0], speed="jump")
+    # prepare arm
+    moveTo(destination=[0, 0, 1.13, -0.23, -0.18, 1.5], speed="jump")
+    # align with book
+    moveTo(destination=[0, -1.63, 1.12, -0.37, -0.30, 1.5], speed="jump")
+    # reach for the book
+    moveTo(destination=[0, -1.65, 0.47, 0.02, -0.49, 1.5], speed="slow")
+    # grab the book
+    moveTo(destination=[0, -1.65, 0.47, 0.02, -0.49, 0.6], speed="jump")
+    # pull back with the book
+    moveTo(destination=[0, -1.65, 1.5, -0.76, -0.16, 0.6], speed="normal")
+    # turn towards the box
+    moveTo(destination=[0, -3.61, 1.5, -0.97, 0.64, 0.6], speed="normal")
+    # turn towards the box
+    moveTo(destination=[0, -3.12, 0.64, -0.37, -0.17, 0.6], speed="fast")
+    # drop the book in the box
+    moveTo(destination=[0, -3.12, 0.64, -0.37, -0.17, 1.5], speed="jump")
+
+
 def laser_scan_callback(data):
     print(data.ranges)
 
@@ -152,9 +173,9 @@ def move_motor(fwd, ang):
 if __name__ == '__main__':
     rospy.init_node('move_arm', anonymous=True)
     rospy.logwarn("moveTo started")
-    pick_up_book()
+    pick_up_top_book()
     rospy.logwarn("moveTo ended")
-
+    """
     start_time = time()
     duration = 2.5  # in seconds
 
@@ -175,5 +196,5 @@ if __name__ == '__main__':
     rospy.logwarn("moveTo started")
     pick_up_book()
     rospy.logwarn("moveTo ended")
-
+    """
     rospy.spin()
