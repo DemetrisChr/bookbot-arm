@@ -1,0 +1,9 @@
+#!/bin/bash
+ssh -XC pi@pichu << EOF
+  cd catkin_ws;
+  source devel/setup.bash;
+  roscd sdp16_test/src
+  roscore
+EOF
+
+gnome-terminal -x ./turtlebot-setup2
