@@ -138,23 +138,30 @@ def pick_up_book():
 
 def pick_up_top_book():
     # initial pos
-    moveTo(destination=[0, 0, 0, 0, 0, 0], speed="jump")
+    moveTo(destination=[0, 0, 0, 0, 0, 0], speed="fast")
     # prepare arm
     moveTo(destination=[0, 0, 1.13, -0.23, -0.18, 1.5], speed="jump")
     # align with book
-    moveTo(destination=[0, -1.63, 1.12, -0.37, -0.30, 1.5], speed="jump")
+    moveTo(destination=[0, -1.63, 1.12, -0.37, -0.30, 1.5], speed="fast")
     # reach for the book
-    moveTo(destination=[0, -1.65, 0.47, 0.02, -0.49, 1.5], speed="slow")
+    moveTo(destination=[0, -1.56, 0.42, 0.2, -0.32, 1.5], speed="slow")
     # grab the book
-    moveTo(destination=[0, -1.65, 0.47, 0.02, -0.49, 0.6], speed="jump")
+    moveTo(destination=[0, -1.56, 0.42, 0.2, -0.32, 0.55], speed="jump")
     # pull back with the book
-    moveTo(destination=[0, -1.65, 1.5, -0.76, -0.16, 0.6], speed="normal")
+    moveTo(destination=[0, -1.5, 1.55, -1.4, 1.15, 0.55], speed="slow")
     # turn towards the box
-    moveTo(destination=[0, -3.61, 1.5, -0.97, 0.64, 0.6], speed="normal")
-    # turn towards the box
-    moveTo(destination=[0, -3.12, 0.64, -0.37, -0.17, 0.6], speed="fast")
+    moveTo(destination=[0, -3.12, 1.67, -1.4, 1.15, 0.55], speed="jump")
+    # lean in on the box
+    moveTo(destination=[0, -3.12, 0.75, -0.45, -0.26, 0.55], speed="jump")
     # drop the book in the box
-    moveTo(destination=[0, -3.12, 0.64, -0.37, -0.17, 1.5], speed="jump")
+    moveTo(destination=[0, -3.12, 0.75, -0.45, -0.26, 1.5], speed="jump")
+    #returning to initial pos( step 1)
+    moveTo(destination=[0, -3.12, 1.25, -0.37, -0.07, 1.5], speed="fast")
+     #returning to initial pos( step 2)
+    moveTo(destination=[0, -3.12, 1.8, -1.4, 0.6, 1.5], speed="fast")
+    #returning to initial pos(step 3)
+    moveTo(destination=[0, 0, 1.3, -1.5, 0.6, 1.5], speed="fast")
+
 
 
 def laser_scan_callback(data):
