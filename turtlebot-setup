@@ -2,7 +2,7 @@
 ssh -XC pi@pichu << EOF
   cd catkin_ws;
   source devel/setup.bash;
-  roscd sdp16_test/src
+  roscd sdp16/src
   roscore
 EOF
 
